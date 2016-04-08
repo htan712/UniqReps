@@ -6,7 +6,11 @@ class User < ActiveRecord::Base
 
   before_save { self.role ||= :member }
 
-  has_many :recipes
+  validates :name, presence: true
+  validates :role, presence: true
+  validates :email, uniqueness: {case_sensitive: false}
 
+  has_many :recipes
+  
   enum role: [:member, :admin]
 end

@@ -28,4 +28,5 @@
           .links
             = link_to_add_association 'Add Directions', f, :directions, class: "btn btn-s btn-default add-button"
 
-  = f.button :submit, class: "btn btn-s btn-primary"
+    = f.button :submit, class: "btn btn-s btn-primary"
+    = link_to "Back", :back, class: 'btn btn-s btn-default'
