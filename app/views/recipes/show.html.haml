@@ -5,6 +5,15 @@
     .col-md-8
       #recipe_info
         %h1= @recipe.title
+        %p
+          = link_to "Like", like_recipe_path(@recipe), method: :get
+          = @recipe.get_upvotes.size
+          Likes
+          = link_to "Dislike", dislike_recipe_path(@recipe), method: :get
+          = @recipe.get_downvotes.size
+          Dislikes
+
+
         %p.description= @recipe.description
         %p
           %strong Submitted by:

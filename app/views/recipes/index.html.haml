@@ -10,6 +10,8 @@
           %p
             = recipe.reviews.count
             Reviews
+            = recipe.get_upvotes.size
+            Likes
           %h4
             By:
             =  recipe.user.name

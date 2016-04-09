@@ -21,6 +21,7 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'bootstrap-sass'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'cocoon', '~> 1.2', '>= 1.2.8'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

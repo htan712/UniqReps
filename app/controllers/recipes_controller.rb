@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :find_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :find_recipe, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :edit_destroy, only: [:edit, :update, :destroy]
 
@@ -30,7 +30,6 @@ class RecipesController < ApplicationController
   end
 
   def update
-    authorize @recipe
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
@@ -39,9 +38,18 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    authorize @recipe
     @recipe.destroy
-      redirect_to root_path, notice: "Recipe Deleted."
+    redirect_to root_path, notice: "Recipe Deleted."
+  end
+
+  def upvote
+    @recipe.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @recipe.downvote_by current_user
+    redirect_to :back
   end
 
   private
