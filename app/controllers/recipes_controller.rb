@@ -8,6 +8,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @reviews = Review.where(recipe_id: @recipe)
   end
 
   def new
@@ -25,9 +26,11 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    authorize @recipe
   end
 
   def update
+    authorize @recipe
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
@@ -36,8 +39,9 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    authorize @recipe
     @recipe.destroy
-    redirect_to root_path, notice: "Recipe Deleted."
+      redirect_to root_path, notice: "Recipe Deleted."
   end
 
   private

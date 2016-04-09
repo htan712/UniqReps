@@ -29,3 +29,12 @@
       =link_to "Back", root_path, class: "btn btn-s btn-default"
       =link_to "Edit", edit_recipe_path, class: "btn btn-s btn-default"
       =link_to "Delete", recipe_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-s btn-default"
+  .row
+    .col-md-12
+      %h2.review_count= pluralize(@recipe.reviews.count, "Review")
+      - @reviews.each do |review|
+        .review
+          %p.username= review.user.name
+          %p.content= review.content
+
+      = render 'reviews/form'
