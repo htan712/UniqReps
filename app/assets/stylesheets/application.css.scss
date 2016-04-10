@@ -153,3 +153,51 @@ body {
 .add-button {
 	margin-top: 25px;
 }
+
+#intro {
+	margin: 2.75rem 0 1.75rem 0;
+	text-align: center;
+	font-size: 2.2rem;
+	line-height: 1;
+  color: $red;
+
+	span {
+		font-size: 1.55rem;
+		color: #9B9B9B;
+	}
+}
+#reviews {
+	padding-bottom: 4rem;
+	width: 50%;
+	.review_count {
+		border-bottom: 1px solid #E9E9E9;
+		padding-bottom: .5rem;
+		margin-bottom: 0;
+	}
+	.review {
+    background: white;
+		padding: 2rem 0;
+		border-bottom: 1px solid #E9E9E9;
+		padding-left: 5%;
+		.username {
+			font-size: 1.3rem;
+			color: #333233;
+			margin: 0 0 .5rem 0;
+		}
+		.content {
+			margin: 0;
+			color: #969696;
+		}
+	}
+	.review_content {
+		margin-top: 2.5rem;
+		textarea {
+			width: 100%;
+			margin: 1rem 0;
+			min-height: 150px;
+			border: 1px solid #E4E4E4;
+			background: #F8F9FA;
+			border-radius: 0.3rem;
+		}
+	}
+}

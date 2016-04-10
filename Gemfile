@@ -14,7 +14,7 @@ gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'figaro'
 gem 'faker'
-gem 'pundit'
+gem 'pundit', '~> 1.1'
 gem 'sendgrid'
 gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
@@ -31,6 +31,9 @@ group :development, :test do
   gem 'capybara'
   gem "better_errors"
   gem 'binding_of_caller'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+  gem 'byebug'
 end
 
 group :production do

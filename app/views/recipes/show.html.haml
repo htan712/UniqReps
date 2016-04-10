@@ -13,7 +13,6 @@
           = @recipe.get_downvotes.size
           Dislikes
 
-
         %p.description= @recipe.description
         %p
           %strong Submitted by:
@@ -36,14 +35,17 @@
   .row
     .col-md-12
       =link_to "Back", root_path, class: "btn btn-s btn-default"
-      =link_to "Edit", edit_recipe_path, class: "btn btn-s btn-default"
-      =link_to "Delete", recipe_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-s btn-default"
+      -if policy(@recipe).edit?
+        =link_to "Edit", edit_recipe_path, class: "btn btn-s btn-default"
+      -if policy(@recipe).destroy?
+        =link_to "Delete", recipe_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-s btn-default"
   .row
     .col-md-12
-      %h2.review_count= pluralize(@recipe.reviews.count, "Review")
-      - @reviews.each do |review|
-        .review
-          %p.username= review.user.name
-          %p.content= review.content
+      #reviews
+        %h2.review_count= pluralize(@recipe.reviews.count, "Review")
+        - @reviews.each do |review|
+          .review
+            %p.username= review.user.name
+            %p.content= review.content
 
-      = render 'reviews/form'
+        = render 'reviews/form'

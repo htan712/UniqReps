@@ -4,7 +4,8 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password "password"
     password_confirmation "password"
-    confirmed_at Date.today
     role 0
+    confirmed_at Time.now
+    after(:create) { |user| user.confirm! }
   end
 end

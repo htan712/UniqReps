@@ -1,20 +1,21 @@
-# class RecipePolicy
-#   attr_reader :current_user, :recipe
-#
-#   def initialize(current_user, recipe)
-#     @current_user = current_user
-#     @recipe = recipe
-#   end
-#
-#   def update?
-#     @current_user.admin? || @current_user = @recipe.user
-#   end
-#
-#   def edit?
-#     @current_user.admin? || @current_user = @recipe.user
-#   end
-#
-#   def destroy?
-#     @current_user.admin? || @current_user = @recipe.user
-#   end
-# end
+class RecipePolicy
+
+  attr_reader :user, :recipe
+
+  def initialize(user, recipe)
+    @user = user
+    @recipe = recipe
+  end
+
+  def update?
+    user.present? && user == recipe.user
+  end
+
+  def edit?
+    update?
+  end
+
+  def destroy?
+    user.present? && user == recipe.user
+  end
+end

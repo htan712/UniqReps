@@ -1,3 +1,11 @@
+- if user_signed_in?
+  %p#intro
+    Hello
+    = current_user.name
+    %br/
+    %span
+      Let's share your tasty recipes and see what everyone else is cooking!
+
 - @recipe.each_slice(3) do |recipes|
   .row
     - recipes.each do |recipe|
