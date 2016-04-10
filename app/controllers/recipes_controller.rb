@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   after_action :verify_authorized, only: [:edit, :update, :destroy]
 
   def index
-    @recipe = Recipe.all.order("created_at DESC")
+    @recipes = Recipe.all.order("created_at DESC")
   end
 
   def show
