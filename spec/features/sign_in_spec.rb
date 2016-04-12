@@ -8,10 +8,7 @@ feature 'Sign in', :devise do
 
   scenario 'user can sign in with valid credentials', :js do
     user = FactoryGirl.create(:user)
-    user.skip_confirmation!
-    user.save
-    byebug
-    signin(user.email, 'password')
+    signin(user.email, user.password)
     expect(page).to have_content "Hello #{user.name}"
   end
 

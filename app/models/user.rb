@@ -4,10 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  before_save { self.role ||= :member }
+  before_save { self.role = :member }
 
   validates :name, presence: true
-  validates :role, presence: true
   validates :email, uniqueness: {case_sensitive: false}
 
   has_many :recipes, dependent: :destroy
