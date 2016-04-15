@@ -48,6 +48,9 @@
         - @reviews.each do |review|
           .review
             %p.username= review.user.name
-            %p.content= review.content
+            %p.content
+              = review.content
+              -# -if current_user == review.user
+              -#   =link_to "(Delete)", [review.recipe, review], method: :delete, data: { confirm: "are you sure?" }, remote: true
 
         = render 'reviews/form'

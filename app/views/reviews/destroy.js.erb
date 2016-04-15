@@ -1,0 +1,7 @@
+<% if @review.destroyed? %>
+  $('#review-' +<%= @review.id %>).hide();
+  $('.js-reviews-count').html("<%= pluralize(@review.user.reviews.count, 'review') %>");
+
+  <% else %>
+  $('.flash').prepend("<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>&times;</button><%= flash.now[:alert] %></div>");
+<% end %>
